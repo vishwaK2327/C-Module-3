@@ -23,9 +23,38 @@ To write a C program that calculates the EMI for a loan using a function **witho
 6. Stop the program.
 
 ## 🧾Program
-Add Code Here
+```
+#include <stdio.h>
+#include <math.h>
+void calculateEMI(float principal, float annualRate, int timeMonths) {
+    float monthlyRate = annualRate / (12 * 100);  
+    float emi;
+    emi = (principal * monthlyRate * pow(1 + monthlyRate, timeMonths)) /
+          (pow(1 + monthlyRate, timeMonths) - 1);
+    printf("The EMI is: %.2f\n", emi);
+}
 
+int main() {
+    float principal, rate;
+    int time;
+    printf("Enter principal amount: ");
+    scanf("%f", &principal);
+    printf("Enter annual interest rate (in %%): ");
+    scanf("%f", &rate);
+    printf("Enter loan duration in months: ");
+    scanf("%d", &time);
+    calculateEMI(principal, rate, time);
+    return 0;
+}
+```
 ## Sample Output
-
+```
+Input:
+Enter principal amount: 500000
+Enter annual interest rate (in %): 7.5
+Enter loan duration in months: 60
+Output:
+The EMI is: 10018.97
+```
 ## Result
-
+The above programme is implemented and executed.
